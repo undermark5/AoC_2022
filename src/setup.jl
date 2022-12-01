@@ -7,4 +7,10 @@ Day01:
 using AdventOfCodeUtil: setup_files
 
 ENV["AOC_SESSION"] = readline(pwd() * "/secrets/session.id")
-setup_files(2022, 1)
+new_file = setup_files()
+run(`git add $new_file`)
+try
+    run(`git commit -m "start $(split(splitdir(new_file)[2], ".")[1])"`)
+catch
+    @warn "file failed to commit"
+end
