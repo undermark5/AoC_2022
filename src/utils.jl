@@ -8,3 +8,7 @@ Utils:
 tail((head, tail...)::Vector) = tail
 
 to_ints(strings::Vector{String}) = parse.(Int, strings)
+
+function slicematrix(A::AbstractMatrix)
+    return [A[i, :] for i in 1:size(A,1)]
+end
